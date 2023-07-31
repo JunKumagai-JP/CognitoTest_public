@@ -31,7 +31,7 @@ var signUp = function() {
 			
 	var userID = $("#email").val();
 	var name = $("#name").val();
-	var nickname = $("#nickame").val();
+	var nickname = $("#nickname").val();
 	var password = $("#password").val();
 			
 	// 何か1つでも未入力の項目がある場合、処理終了
