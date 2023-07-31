@@ -1,7 +1,7 @@
 // ユーザープールの設定
 const poolData = {
-    UserPoolId : [ユーザープールID],
-    ClientId : [アプリクライアントID]
+    UserPoolId : 'ap-northeast-1_52409aVZ8',
+    ClientId : '3i03u57ccd65ipocm3qf5g3ps1'
 };
 const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
  
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	// Amazon Cognito 認証情報プロバイダーの初期化
 	AWSCognito.config.region = 'ap-northeast-1'; // リージョン
 	AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
-	    IdentityPoolId: [IDプールのID]
+	    IdentityPoolId: 'ap-northeast-1:9e331007-976a-488e-8dbb-24c33016e66a'
 	});
 		    
 	// 「Create Account」ボタン押下時
@@ -29,33 +29,27 @@ $(document).ready(function() {
  */
 var signUp = function() {
 			
-	var username = $("#email").val();
-	var lastName = $("#lastName").val();
-	var firstName = $("#firstName").val();
+	var userID = $("#email").val();
+	var name = $("#name").val();
+	var nickname = $("#nickame").val();
 	var password = $("#password").val();
 			
 	// 何か1つでも未入力の項目がある場合、処理終了
-    if (!username | !lastName | !firstName | !password) { 
+    if (!userID | !name | !nickname | !password) { 
     	return false; 
     }
 		    
     // ユーザ属性リストの生成
-	var dataFamilyName = {
-		Name : "family_name",
-		Value : lastName
+	var dataNickName = {
+		Name : "nickname",
+		Value : nickname
 	}
-	var dataGivenName = {
-		Name : "given_name",
-		Value : firstName
-	}
-	var attributeFamilyName = new AmazonCognitoIdentity.CognitoUserAttribute(dataFamilyName);
-	var attributeGivenName = new AmazonCognitoIdentity.CognitoUserAttribute(dataGivenName);
+	var attribute_nickname = new AmazonCognitoIdentity.CognitoUserAttribute(dataNickame);
 			
-    attributeList.push(attributeFamilyName);
-    attributeList.push(attributeGivenName);
+    attributeList.push(attribute_nickname);
 			
     // サインアップ処理
-    userPool.signUp(username, password, attributeList, null, function(err, result){
+    userPool.signUp(userID, password, attributeList, null, function(err, result){
 	    if (err) {
 	    	alert(err);
 			return;
