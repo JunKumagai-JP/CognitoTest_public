@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+<script src="js/jsbn.js"></script>
+<script src="js/jsbn2.js"></script>
+<script src="js/sjcl.js"></script>
+<script src="js/aws-sdk.min.js"></script>
+<script src="js/aws-cognito-sdk.min.js"></script>
+<script src="js/amazon-cognito-identity.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/signup.js"></script>
+ 
+</head>
+<body>
+    
+    <div id="signup">
+      <h1>新規登録</h1>
+      <form name='form-signup'>
+	      <span style="display: inline-block; width: 200px;">ユーザID(メールアドレス)</span>
+          <input type="text" id="email" placeholder="ユーザID(メールアドレス)">
+          <br/>
+          <span style="display: inline-block; width: 200px;">名前(半角カタカナ)</span>
+          <input type="text" id="name" placeholder="名前(半角カタカナ)">
+          <br/>
+          <span style="display: inline-block; width: 200px;">顧客番号</span>
+          <input type="text" id="nickname" placeholder="顧客番号">
+          <br/>
+          <span style="display: inline-block; width: 200px;">パスワード</span>
+          <input type="password" id="password" placeholder="パスワード">
+          <br/><br/>
+        <input type="button" id="createAccount" value="新規登録">
+	  </form>
+	</div>
+</body>
+</html>
